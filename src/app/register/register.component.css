@@ -15,7 +15,6 @@ align-items:center;
 }
 
 input, select{
-    background:yellow;
    margin-top:20px;
     width:80%;
     color:rgb(223,63,63);
@@ -25,7 +24,8 @@ input, select{
     font-size:1.1rem;
     border-bottom: 1px solid white;
     border-radius: 0;
-
+    appearance: none;
+    
 }
 
  ::placeholder{

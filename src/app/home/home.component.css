@@ -37,7 +37,7 @@ h1{
     0 0 0 60px rgba(255, 255, 255, 0);
 
 
-    animation: button-pulse 3s infinite;
+    animation: button-pulse 2s infinite;
     /*animation-name: button-pulse;
     animation-duration: 4s;*/
 }

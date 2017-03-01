@@ -7,7 +7,7 @@ export interface Alien{
 
 export interface Job{
     name: string;
-    id: number;
+    id: string;
     description: string;
 }
 
@@ -29,7 +29,7 @@ export interface Encounter{
 export class NewColonist{
     name: string;
     job: Job;
-    age: number;
+    age: string;
 }
 
 

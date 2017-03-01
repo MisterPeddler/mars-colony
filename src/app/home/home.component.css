@@ -5,9 +5,8 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /*align-items: space-between;*/
-    /*position:relative;*/
+    justify-content: space-around;
+    align-items:center;
 }
 
 h1,h2{

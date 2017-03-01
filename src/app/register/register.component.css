@@ -3,20 +3,36 @@
     height:100%;
     width:100%;
 
+
 }
 
 
-.input-container{
+/*.input-container, form{
 
 display:flex;
 flex-direction: column;
 align-items:center;
 
+}*/
+
+form{
+    width:80%;
+    margin:0 auto;
+    
+}
+
+fieldset{
+    margin:0 auto;
+}
+
+button{
+    background:red;
 }
 
 input, select{
+    margin: 0 auto;
    margin-top:20px;
-    width:80%;
+    width:100%;
     color:rgb(223,63,63);
     background:none;
     height:40px;

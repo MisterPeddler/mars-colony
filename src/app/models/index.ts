@@ -28,8 +28,14 @@ export interface Encounter{
 
 export class NewColonist{
     name: string;
-    job: Job;
     age: string;
+    job_id: string;
+
+    constructor(name: string, age:string, job_id:string){
+        this.name = name;
+        this.age = age;
+        this.job_id = job_id;
+    }
 }
 
 

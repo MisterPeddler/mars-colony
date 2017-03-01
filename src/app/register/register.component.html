@@ -4,19 +4,23 @@
 <h1>Register</h1>
 <div class="input-container">
 
-  <input placeholder="Name" required [(ngModel)]="fakeColonist.name" name="colonitsName">
+<form [formGroup]="registerForm" [ngClass]="{ invalid:registerForm.invalid }">
+    <fieldset>
+        <input type="text" placeholder="Name" required formControlName="name" name="name">
+        <input type="number" placeholder="Age" required formControlName="age" name="age">
+        <div class="custom-select">
+            <select required formControlName="job_id" name="job_id">
+                <option value="">Select an Occupation</option>
+                <option *ngFor="let job of marsJob" value="{{ job.id }}">{{ job.name }}</option>
+            </select>
+        </div>
+    </fieldset>
+   <button type="button" (click)="logColonist()">Log Colonist</button>
+</form>
 
-  <input placeholder="Age" required [(ngModel)]="fakeColonist.age" name="colonistAge">
 
-  <select required [(ngModel)]="fakeColonist.job" name="colonistJob">
-    <option value="(none)" disabled selected>Select Occupation</option>
-    <option *ngFor="let job of marsJob" value="{{job.description}}">{{job.description}}</option>
-  </select>
-
-</div>
-
-<h1> New Colonist: {{fakeColonist}} </h1>
-<a class="check-in-button" routerLink = "/encounters">Check In</a>
+<!--<a class="check-in-button" routerLink = "/encounters">Check In</a>-->
+<a class="check-in-button" (click)="submitLogin()">Check In</a>
 
 </div>
 

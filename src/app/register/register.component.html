@@ -4,12 +4,12 @@
 <h1>Register</h1>
 <div class="input-container">
 
-<form [formGroup]="registerForm" [ngClass]="{ invalid:registerForm.invalid }">
+<form [formGroup]="registerForm" >
     <fieldset>
-        <input type="text" placeholder="Name" required formControlName="name" name="name">
-        <input type="number" placeholder="Age" required formControlName="age" name="age">
+        <input type="text" placeholder="Name" required formControlName="name" name="name" [ngClass]="{submitted : submitStatusName}" >
+        <input type="number" placeholder="Age" required formControlName="age" name="age" [ngClass]="{submitted : submitStatusAge}" >
         <div class="custom-select">
-            <select required formControlName="job_id" name="job_id">
+            <select required formControlName="job_id" name="job_id" [ngClass]="{submitted : submitStatusJob}" >
                 <option value="">Select an Occupation</option>
                 <option *ngFor="let job of marsJob" value="{{ job.id }}">{{ job.name }}</option>
             </select>
@@ -19,8 +19,8 @@
 </form>
 
 
-<!--<a class="check-in-button" routerLink = "/encounters">Check In</a>-->
-<a class="check-in-button" (click)="submitLogin()">Check In</a>
+<a class="check-in-button" routerLink = "/encounters">Check In</a>
+<!--<a class="check-in-button" click="submitStatusName= true">Check In</a>-->
 
 </div>
 

@@ -4,15 +4,18 @@
 <p>Safety on Mars is your responsibility</p>
 
 
-<select>
+
+<form [formGroup]="reportForm" >
+<select required required formControlName="atype" name="atype">
     <option value="" disabled selected>Select Alien Type</option>
+     <option *ngFor="let alien of aliens;" value="{{ alien }}">{{alien}}</option>
   </select>
 
-<textarea placeholder="Action Taken">
+<textarea placeholder="Action Taken" formControlName="action" name="action" ></textarea>
+</form>
 
-</textarea>
 
-<a routerLink = "/encounters" >Submit Report</a>
-
+<!--<a routerLink = "/encounters" >Submit Report</a>-->
+<a (click)="submitReport()" >Submit Report</a>
 </div>
   

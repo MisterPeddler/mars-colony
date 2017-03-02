@@ -21,9 +21,15 @@ export class RegisterComponent implements OnInit {
   newColonist: NewColonist;
   marsJob: Job[];
   registerForm: FormGroup;
-
+  submitStatusName: boolean;
+  submitStatusAge: boolean; 
+  submitStatusJob: boolean;
 
   constructor() {
+
+    this.submitStatusName = false;
+    this.submitStatusJob = false;
+    this.submitStatusAge = false;
 
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
@@ -60,8 +66,16 @@ export class RegisterComponent implements OnInit {
   }
 
   logColonist() {
+    this.submitStatusName = true;
+    this.submitStatusJob = true;
+    this.submitStatusAge = true;
+
     console.log(this.registerForm);
   }
+
+statusNameFocused(){
+  this.submitStatusName = false;
+}
 
   ngOnInit() {
 

@@ -41,9 +41,9 @@ select{
     border-radius: 0;
 }
 
-     ::placeholder{
-       color:rgb(223,63,63);
-    }
+    ::placeholder{
+    color:rgb(223,63,63);
+}
 
 a{
     margin-top:40px;

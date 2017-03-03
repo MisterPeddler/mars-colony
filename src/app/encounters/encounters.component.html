@@ -4,79 +4,18 @@
 <p>See an Alien? Report it!</p>
 </div>
 
-<div class="report-list">
+<ul class="report-list">
 
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>first Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
+  <li class ="report-item" *ngFor="let encounterReport of encounterReports">
+    <p>{{encounterReport.date}} - {{encounterReport.atype}}</p>
+    <p>{{encounterReport.action}}</p>
+  </li>
 
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
+<ul>
 
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
 
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
-
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
-
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
-
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
-
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
-
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
-
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
-
-<div class ="report-item">
-  <p>2016-11-18 - Name</p>
-  <p>last Passersby were amazed by the unusually large amounts of blood. 
-    Passersby were amazed by the unusually large amounts of blood.</p>
-</div>
-
-<div>
-
-</div>
 
 
 <div class="footer">
-<a routerLink = "/report" >Report Encounter</a>
+<a routerLink = "/report">Report Encounter</a>
 </div>

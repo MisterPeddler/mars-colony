@@ -1,9 +1,7 @@
-.register-comp{
-    background:black;
-    height:100%;
-    width:100%;
-
-
+.register-comp {
+  background: black;
+  height: 100%;
+  width: 100%;
 }
 
 
@@ -15,60 +13,56 @@ align-items:center;
 
 }*/
 
-form{
-    width:80%;
-    margin:0 auto;
-    
+form {
+  width: 80%;
+  margin: 0 auto;
 }
 
-fieldset{
-    margin:0 auto;
+fieldset {
+  margin: 0 auto;
 }
 
-button{
-    background:red;
+button {
+  background: red;
 }
 
-input, select{
-    margin: 0 auto;
-   margin-top:20px;
-    width:100%;
-    color:rgb(223,63,63);
-    background:none;
-    height:40px;
-    border:none;
-    font-size:1.1rem;
-    border-bottom: 1px solid white;
-    border-radius: 0;
-    appearance: none;
-    
+input,
+select {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 100%;
+  color: rgb(223, 63, 63);
+  background: none;
+  height: 40px;
+  border: none;
+  font-size: 1.1rem;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  appearance: none;
 }
 
- ::placeholder{
-       color:rgb(223,63,63);
-    }
-
-select{
-    margin-bottom: 80px;
+ ::placeholder {
+  color: rgb(223, 63, 63);
 }
 
-h1, a{
-    padding-top: 50px;
-    text-align:center;
-   font-size: 2.3rem;
-   font-weight:100;
-   color:white;
+select {
+  margin-bottom: 80px;
 }
 
-a{
-    display: block;
-    text-decoration: none;
-
-    }
-
-
-.submitted.ng-invalid{
-border: 2px solid red;
+h1,
+a {
+  padding-top: 50px;
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 100;
+  color: white;
 }
 
+a {
+  display: block;
+  text-decoration: none;
+}
 
+.submitting.ng-invalid {
+  border: 2px solid red;
+}

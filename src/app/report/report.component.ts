@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { NewEncounter } from '../models';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  NewEncounter
+} from '../models';
 import {
   FormGroup,
   FormControl,
@@ -8,7 +13,7 @@ import {
   ValidatorFn,
   AbstractControl
 }
-  from '@angular/forms';
+from '@angular/forms';
 
 @Component({
   selector: 'app-report',
@@ -17,46 +22,43 @@ import {
 })
 export class ReportComponent implements OnInit {
 
-  newEncounter : NewEncounter;
-  aliens : string[];
+  newEncounter: NewEncounter;
+  aliens: string[];
   reportForm: FormGroup;
 
   constructor() {
 
     //get this from the API somehow
-    this.aliens = ['cats','dogs','rats','mice'];
+    this.aliens = ['cats', 'dogs', 'rats', 'mice'];
 
     this.reportForm = new FormGroup({
-      atype: new FormControl('',[Validators.required]),
-      action: new FormControl('',[Validators.required, Validators.maxLength(1000)])
+      atype: new FormControl('', [Validators.required]),
+      action: new FormControl('', [Validators.required, Validators.maxLength(1000)])
     });
 
-   
-    
-
-   }
-
-  ngOnInit() {
   }
 
-  submitReport(){
+  ngOnInit() {}
 
-if(this.reportForm.status === 'VALID'){
+  submitReport() {
 
-  this.newEncounter = new NewEncounter(
-        this.reportForm.value['atype'],
-        new Date().toString(),
-        this.reportForm.value['action'],
-        '2'
-    );
+    if (!this.reportForm.invalid) {
 
-     console.log(this.newEncounter);
-}else{
-  console.log('FORM NOT VALID');
-}
-    
-  
-   
+      this.newEncounter = new NewEncounter(
+        this.reportForm.value['atype'], //contents of select
+        new Date().toString(), //current date,time
+        this.reportForm.value['action'], //action report from user
+        '2' //user_id: get this from logged in user
+      );
+
+      //send to server instead of console
+      console.log(this.newEncounter);
+    } else {
+      console.log('FORM NOT VALID');
+    }
+
+
+
 
   }
 

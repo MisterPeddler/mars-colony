@@ -1,27 +1,24 @@
 <div class="register-comp">
 
 
-<h1>Register</h1>
-<div class="input-container">
+    <h1>Register</h1>
+    <div class="input-container">
 
-<form [formGroup]="registerForm" >
-    <fieldset>
-        <input type="text" placeholder="Name" required formControlName="name" name="name" [ngClass]="{submitted : submitStatusName}" >
-        <input type="number" placeholder="Age" required formControlName="age" name="age" [ngClass]="{submitted : submitStatusAge}" >
-        <div class="custom-select">
-            <select required formControlName="job_id" name="job_id" [ngClass]="{submitted : submitStatusJob}" >
+        <form [formGroup]="registerForm"
+            class="register-form"
+            [ngClass]="{'submitting':submitted}"
+            (ngSubmit)="postNewColonist($event)">
+            <fieldset>
+                <input type="text" placeholder="Name" formControlName="name" name="name" >
+                <input type="number" placeholder="Age"  formControlName="age" name="age" >
+                <div class="custom-select">
+                    <select  formControlName="job_id" name="job_id" >
                 <option value="">Select an Occupation</option>
                 <option *ngFor="let job of marsJob" value="{{ job.id }}">{{ job.name }}</option>
             </select>
-        </div>
-    </fieldset>
-   <button type="button" (click)="logColonist()">Log Colonist</button>
-</form>
+                </div>
+            </fieldset>
+             <button>Check In</button>
+        </form>
 
-
-<a class="check-in-button" routerLink = "/encounters">Check In</a>
-<!--<a class="check-in-button" click="submitStatusName= true">Check In</a>-->
-
-</div>
-
-
+    </div>

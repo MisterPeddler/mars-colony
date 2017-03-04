@@ -3,8 +3,9 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  NewEncounter
+  NewEncounter, Alien
 } from '../models';
+import { AlienAPIService } from '../apiService/aliens';
 import {
   FormGroup,
   FormControl,
@@ -18,18 +19,21 @@ from '@angular/forms';
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css']
+  styleUrls: ['./report.component.css'],
+   providers: [AlienAPIService]
 })
 export class ReportComponent implements OnInit {
 
   newEncounter: NewEncounter;
-  aliens: string[];
+  aliens: Alien[];
   reportForm: FormGroup;
 
-  constructor() {
+  constructor(private alienAPIService: AlienAPIService) {
+
+    this.getAliens();
 
     //get this from the API somehow
-    this.aliens = ['cats', 'dogs', 'rats', 'mice'];
+    // this.aliens = ['cats', 'dogs', 'rats', 'mice'];
 
     this.reportForm = new FormGroup({
       atype: new FormControl('', [Validators.required]),
@@ -60,6 +64,14 @@ export class ReportComponent implements OnInit {
 
 
 
+  }
+
+  getAliens(){
+    this.alienAPIService.getAliens()
+    .subscribe((result) => {
+      console.log(result);
+      this.aliens = result;
+    });
   }
 
 }

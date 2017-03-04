@@ -8,7 +8,7 @@
   <form [formGroup]="reportForm">
     <select required required formControlName="atype" name="atype">
     <option value="" disabled selected>Select Alien Type</option>
-     <option *ngFor="let alien of aliens;" value="{{ alien }}">{{alien}}</option>
+     <option *ngFor="let alien of aliens" value="{{ alien.id }}">{{alien.type}}</option>
   </select>
 
     <textarea placeholder="Action Taken" formControlName="action" name="action"></textarea>

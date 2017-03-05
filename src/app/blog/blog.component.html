@@ -1,3 +1,17 @@
-<p>
-  blog works!
-</p>
+<div class="blog-comp">
+  <div class="header">
+<h1>Captain's Blog</h1>
+</div>
+
+<ul class="blog-list">
+
+  <li class ="blog-item" *ngFor="let blogPost of blogPosts">
+    <p>{{blogPost.title.rendered}}</p>
+    <p [innerHTML]="blogPost.content.rendered"></p>
+  </li>
+
+<ul>
+
+<div class="footer">
+<a routerLink = "/encounters">Back to Encounters</a>
+</div>

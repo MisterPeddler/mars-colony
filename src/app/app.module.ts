@@ -19,7 +19,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'encounters', component: EncountersComponent},
   {path: 'report', component: ReportComponent},
-  {path: '**', component: NotfoundComponent }
+  {path: 'blog', component: BlogComponent},
+  {path: '**', component: NotfoundComponent}
 ];
 
 @NgModule({
@@ -39,7 +40,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [DatePipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

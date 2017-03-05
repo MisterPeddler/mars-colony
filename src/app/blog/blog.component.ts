@@ -14,7 +14,7 @@ export class BlogComponent implements OnInit {
   loaded : boolean;
 
   constructor(private blogAPIService: BlogAPIService) {
-   this.loaded = false;
+    this.loaded = false;
     this.getBlogPosts();
   }
 
@@ -30,6 +30,4 @@ export class BlogComponent implements OnInit {
         console.log(this.blogPosts);
       });
   }
-
-
 }

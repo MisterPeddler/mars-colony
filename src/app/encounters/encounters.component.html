@@ -1,21 +1,19 @@
 <div class="encounters-comp">
   <div class="header">
-<h1>Recent Encounters</h1>
-<p>See an Alien? Report it!</p>
-</div>
+    <h1>Recent Encounters</h1>
+    <p>See an Alien? Report it!</p>
+  </div>
 
-<img  [ngClass]="{'loaded':loaded}" class="loading-gif" src="../assets/ajax-loader.gif"/>
+  <img  [ngClass]="{'loaded':loaded}" class="loading-gif" src="../assets/ajax-loader.gif"/>
 
-<ul class="report-list">
+  <ul class="report-list">
+    <li class ="report-item" *ngFor="let encounterReport of encounterReports">
+      <p>{{encounterReport.date}} - {{encounterReport.atype}}</p>
+      <p>{{encounterReport.action}}</p>
+    </li>
+  <ul>
 
-  <li class ="report-item" *ngFor="let encounterReport of encounterReports">
-    <p>{{encounterReport.date}} - {{encounterReport.atype}}</p>
-    <p>{{encounterReport.action}}</p>
-  </li>
-
-<ul>
-
-<div class="footer">
-<a routerLink = "/report">Report Encounter</a>
- <a routerLink = "/blog">Captain's Blog</a>
-</div>
+  <div class="footer">
+    <a routerLink = "/report">Report Encounter</a>
+    <a routerLink = "/blog">Captain's Blog</a>
+  </div>

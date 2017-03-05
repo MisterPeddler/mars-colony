@@ -26,11 +26,10 @@ export class EncountersComponent implements OnInit {
       .subscribe((result) => {
         this.loaded = true;
         this.encounterReports = result;
-
       });
   }
 
-  ngOnInit() {
+  ngOnInit(){
   }
 
 }

@@ -7,8 +7,7 @@ import {
   Validators,
   ValidatorFn,
   AbstractControl
-}
-  from '@angular/forms';
+}from '@angular/forms';
 import {Router} from '@angular/router';
 
 import{ ColonistAPIService } from '../apiService/colonist';
@@ -34,17 +33,15 @@ export class RegisterComponent implements OnInit {
               private router: Router) {
 
               
-    this.submitted = false;
+this.submitted = false;
 
-    this.getMarsJobs();
+this.getMarsJobs();
 
-    this.registerForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-      age: new FormControl('', [Validators.required, this.acceptAge(16, 50)]),
-      job_id: new FormControl('', [Validators.required]),
-    });
-
-  
+this.registerForm = new FormGroup({
+  name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+  age: new FormControl('', [Validators.required, this.acceptAge(16, 50)]),
+  job_id: new FormControl('', [Validators.required]),
+  });
 
   }
 
@@ -110,8 +107,8 @@ export class RegisterComponent implements OnInit {
 
 }
 
-  ngOnInit() {
+ngOnInit() {
 
-  }
+}
 
 }

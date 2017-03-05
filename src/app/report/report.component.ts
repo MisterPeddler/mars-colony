@@ -14,13 +14,19 @@ import {
   ValidatorFn,
   AbstractControl
 }
-from '@angular/forms';
+  from '@angular/forms';
+
+import { Router } from '@angular/router';
+
+import { DatePipe } from '@angular/common';
+
+import { EncountersAPIService } from '../apiService/encounters'
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css'],
-   providers: [AlienAPIService]
+  providers: [AlienAPIService, EncountersAPIService, DatePipe]
 })
 export class ReportComponent implements OnInit {
 
@@ -28,12 +34,12 @@ export class ReportComponent implements OnInit {
   aliens: Alien[];
   reportForm: FormGroup;
 
-  constructor(private alienAPIService: AlienAPIService) {
+  constructor(private alienAPIService: AlienAPIService,
+              private router: Router,
+              private encounterAPIService: EncountersAPIService,
+              private datePipe: DatePipe) {
 
     this.getAliens();
-
-    //get this from the API somehow
-    // this.aliens = ['cats', 'dogs', 'rats', 'mice'];
 
     this.reportForm = new FormGroup({
       atype: new FormControl('', [Validators.required]),
@@ -42,36 +48,42 @@ export class ReportComponent implements OnInit {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   submitReport() {
 
     if (!this.reportForm.invalid) {
 
+      let date = new Date();
+      let stringDate = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay();
+
       this.newEncounter = new NewEncounter(
         this.reportForm.value['atype'], //contents of select
-        new Date().toString(), //current date,time
+        stringDate, //current date,time
         this.reportForm.value['action'], //action report from user
-        '2' //user_id: get this from logged in user
+        localStorage.getItem('colonistID') //user_id: get this from logged in user
       );
 
-      //send to server instead of console
-      console.log(this.newEncounter);
+      const encountersPostRequest = {  encounter: this.newEncounter };
+
+      this.encounterAPIService.saveEncounter( encountersPostRequest )
+      .subscribe(
+        result => {
+          console.log('this is the result of saveEncounter', result);
+          this.router.navigate(['/encounters']);
+        }
+      )
     } else {
       console.log('FORM NOT VALID');
     }
-
-
-
-
   }
 
-  getAliens(){
+  getAliens() {
     this.alienAPIService.getAliens()
-    .subscribe((result) => {
-      console.log(result);
-      this.aliens = result;
-    });
+      .subscribe((result) => {
+        console.log(result);
+        this.aliens = result;
+      });
   }
 
 }

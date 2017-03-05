@@ -15,9 +15,7 @@ interface ColonistPostRequest{
 @Injectable()
 export class ColonistAPIService{
         
-    constructor(private http: Http){
-
-    }
+    constructor(private http: Http){}
 
     saveColonist(newColonist:ColonistPostRequest): Observable<Colonist>{
         const headers = new Headers();

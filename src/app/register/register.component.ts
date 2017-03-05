@@ -97,6 +97,11 @@ export class RegisterComponent implements OnInit {
     .subscribe(
       result => {
         console.log(result);
+        console.log("this should be an id -> ", result.id);
+
+        //store the user's ID in local storage
+        localStorage.setItem('colonistID', result.id.toString());
+
         this.router.navigate(['/encounters']);
       },
       error =>  {this.errorMessage = <any>error}

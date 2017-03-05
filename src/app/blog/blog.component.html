@@ -3,11 +3,16 @@
 <h1>Captain's Blog</h1>
 </div>
 
+
+<img  [ngClass]="{'loaded':loaded}" class="loading-gif" src="../assets/ajax-loader.gif"/>
+
+
+
 <ul class="blog-list">
 
   <li class ="blog-item" *ngFor="let blogPost of blogPosts">
-    <p>{{blogPost.title.rendered}}</p>
-    <p [innerHTML]="blogPost.content.rendered"></p>
+    <p class="title">{{blogPost.title.rendered}}</p>
+    <p class="post" [innerHTML]="blogPost.content.rendered"></p>
   </li>
 
 <ul>

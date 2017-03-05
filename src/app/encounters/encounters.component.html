@@ -4,6 +4,8 @@
 <p>See an Alien? Report it!</p>
 </div>
 
+<img  [ngClass]="{'loaded':loaded}" class="loading-gif" src="../assets/ajax-loader.gif"/>
+
 <ul class="report-list">
 
   <li class ="report-item" *ngFor="let encounterReport of encounterReports">

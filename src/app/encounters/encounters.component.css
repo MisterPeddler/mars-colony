@@ -1,6 +1,33 @@
 .encounters-comp{
     background:white;
     height:100vh;
+
+    animation-duration: 0.5s;
+   animation-name: slide;
+}
+
+
+@keyframes slide{
+   0% {
+      opacity: 0;
+      /*transform: translateX(100%);*/
+   }
+   100% {
+      opacity: 1;
+       /*transform: translateX(0%);*/
+   }
+}
+
+.loaded{
+    display:none;
+}
+
+img{
+    position:fixed;
+    top:40%;
+    left:50%;
+    width:50px;
+    transform: translateX(-50%);
 }
 
 h1, a{
@@ -12,11 +39,12 @@ h1, a{
 a{
     color:white;
     text-decoration: none;
+    margin: 5px 0;
 }
 
-a:last-child{
+/*a:last-child{
     margin-top:40px;
-}
+}*/
 
 p{
     font-weight:100;
@@ -27,7 +55,7 @@ p{
 }
 
 .report-list{
-    height:50vh;
+    height:62vh;
     overflow: scroll;
 }
 
@@ -47,7 +75,7 @@ padding: 10px 15px;
 .footer{
     background: black;
     color:white;
-    height:32vh;
+    height:20vh;
     width:100%;
     position:fixed;
     bottom:0;

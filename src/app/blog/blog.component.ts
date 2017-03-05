@@ -11,8 +11,10 @@ import { BlogAPIService } from '../apiService/blog';
 export class BlogComponent implements OnInit {
 
   blogPosts : Object;
+  loaded : boolean;
 
   constructor(private blogAPIService: BlogAPIService) {
+   this.loaded = false;
     this.getBlogPosts();
   }
 
@@ -23,6 +25,7 @@ export class BlogComponent implements OnInit {
     this.blogAPIService.getBlogPosts()
       .subscribe((result) => {
         console.log(result);
+        this.loaded = true;
         this.blogPosts = result;
         console.log(this.blogPosts);
       });

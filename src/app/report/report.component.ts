@@ -25,7 +25,7 @@ import { EncountersAPIService } from '../apiService/encounters'
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css'],
+  styleUrls: ['./report.component.scss'],
   providers: [AlienAPIService, EncountersAPIService, DatePipe]
 })
 export class ReportComponent implements OnInit {
@@ -35,9 +35,9 @@ export class ReportComponent implements OnInit {
   reportForm: FormGroup;
 
   constructor(private alienAPIService: AlienAPIService,
-              private router: Router,
-              private encounterAPIService: EncountersAPIService,
-              private datePipe: DatePipe) {
+    private router: Router,
+    private encounterAPIService: EncountersAPIService,
+    private datePipe: DatePipe) {
 
     this.getAliens();
 
@@ -64,15 +64,15 @@ export class ReportComponent implements OnInit {
         localStorage.getItem('colonistID') //user_id: get this from logged in user
       );
 
-      const encountersPostRequest = {  encounter: this.newEncounter };
+      const encountersPostRequest = { encounter: this.newEncounter };
 
-      this.encounterAPIService.saveEncounter( encountersPostRequest )
-      .subscribe(
+      this.encounterAPIService.saveEncounter(encountersPostRequest)
+        .subscribe(
         result => {
           console.log('this is the result of saveEncounter', result);
           this.router.navigate(['/encounters']);
         }
-      )
+        )
     } else {
       console.log('FORM NOT VALID');
     }

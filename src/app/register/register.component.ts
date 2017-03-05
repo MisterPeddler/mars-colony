@@ -17,7 +17,7 @@ import { JobsAPIService } from '../apiService/jobs';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  styleUrls: ['./register.component.scss'],
   providers: [ColonistAPIService, JobsAPIService]
 })
 

@@ -4,7 +4,7 @@ import { BlogAPIService } from '../apiService/blog';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css'],
+  styleUrls: ['./blog.component.scss'],
   providers: [BlogAPIService]
 })
 

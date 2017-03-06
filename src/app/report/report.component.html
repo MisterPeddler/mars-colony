@@ -3,11 +3,11 @@
   <p>Safety on Mars is your responsibility</p>
 
   <form [formGroup]="reportForm">
-    <select required required formControlName="atype" name="atype">
+    <select required required formControlName="atype" name="atype" [ngClass]="{'submitting':submitted}">
       <option value="" disabled selected>Select Alien Type</option>
       <option *ngFor="let alien of aliens" value="{{ alien.type }}">{{alien.type}}</option>
     </select>
-      <textarea placeholder="Action Taken" formControlName="action" name="action"></textarea>
+      <textarea placeholder="Action Taken" formControlName="action" name="action" [ngClass]="{'submitting':submitted}"></textarea>
   </form>
 
   <a (click)="submitReport()">Submit Report</a>

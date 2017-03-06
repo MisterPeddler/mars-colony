@@ -7,10 +7,10 @@ import {
   Validators,
   ValidatorFn,
   AbstractControl
-}from '@angular/forms';
-import {Router} from '@angular/router';
+} from '@angular/forms';
+import { Router } from '@angular/router';
 
-import{ ColonistAPIService } from '../apiService/colonist';
+import { ColonistAPIService } from '../apiService/colonist';
 import { JobsAPIService } from '../apiService/jobs';
 
 @Component({
@@ -22,29 +22,27 @@ import { JobsAPIService } from '../apiService/jobs';
 
 export class RegisterComponent implements OnInit {
 
- 
   marsJob: Job[];
   registerForm: FormGroup;
-  submitted: boolean; 
-  errorMessage : string;
+  submitted: boolean;
+  errorMessage: string;
 
   constructor(private colonistApiService: ColonistAPIService,
-              private jobsAPIService: JobsAPIService,
-              private router: Router) {
+    private jobsAPIService: JobsAPIService,
+    private router: Router) {
 
-              
-this.submitted = false;
+    //get the list of available jobs from the API
+    this.getMarsJobs();
 
-this.getMarsJobs();
-
-this.registerForm = new FormGroup({
-  name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-  age: new FormControl('', [Validators.required, this.acceptAge(16, 50)]),
-  job_id: new FormControl('', [Validators.required]),
-  });
-
+    //set up form validators
+    this.registerForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+      age: new FormControl('', [Validators.required, this.acceptAge(16, 50)]),
+      job_id: new FormControl('', [Validators.required]),
+    });
   }
 
+  //only allow age form validation between a certain range
   acceptAge(min: number, max: number) {
     return (control: AbstractControl): { [key: string]: any } => {
       if (control.value < min || control.value > max) {
@@ -53,62 +51,47 @@ this.registerForm = new FormGroup({
     }
   }
 
-  getMarsJobs(){
+  //gets the list of jobs from the API
+  getMarsJobs() {
     this.jobsAPIService.getMarsJobs()
-    .subscribe((result) => {
-                console.log('got mars jobs', result);
-                 this.marsJob = result;
-    });
-
+      .subscribe((result) => {
+        this.marsJob = result;
+      });
   }
 
-  postNewColonist(event){
+  //send the new colonist registration data to the API
+  postNewColonist(event) {
     event.preventDefault();
-    console.log('Posting colonist...');
+
     this.submitted = true;
 
-    if(this.registerForm.invalid){
-    //the form is invalid
-    console.log('form is invalid');
-  }else{
-    
-    const name = this.registerForm.get('name').value;
-    const age = this.registerForm.get('age').value;
-    const job_id = this.registerForm.get('job_id').value;
+    if (this.registerForm.invalid) {
+      console.log('form is invalid');
+    } else {
 
+      //get the data from the form if it's valid    
+      const name = this.registerForm.get('name').value;
+      const age = this.registerForm.get('age').value;
+      const job_id = this.registerForm.get('job_id').value;
 
-    //this step creates an object called colonistPostRequest
-    //which contains a key:value pair (key='colonist') which itself contains
-    //the actual new colinist object
-    //this is required so the payload matches what is expected by the server
-    const colonistPostRequest = { colonist: new NewColonist(name,age,job_id) }
-    //     {
-    //     "colonist" : {
-    //         "name" : "Mackenzie",
-    //         "age" : "33",
-    //         "job_id" : "1"
-    //     }
-    // }
+      //load up a NewColonist object
+      const colonistPostRequest = { colonist: new NewColonist(name, age, job_id) }
 
-    this.colonistApiService.saveColonist( colonistPostRequest )
-    .subscribe(
-      result => {
-        console.log(result);
-        console.log("this should be an id -> ", result.id);
+      //send it off
+      this.colonistApiService.saveColonist(colonistPostRequest)
+        .subscribe(
+        result => {
+          //store the new user's ID in local storage for later
+          localStorage.setItem('colonistID', result.id.toString());
+          //send the user to the encounters page
+          this.router.navigate(['/encounters']);
+        });
+    }
 
-        //store the user's ID in local storage
-        localStorage.setItem('colonistID', result.id.toString());
-
-        this.router.navigate(['/encounters']);
-      },
-      error =>  {this.errorMessage = <any>error}
-    );
   }
 
-}
-
-ngOnInit() {
-
-}
+  ngOnInit() {
+    this.submitted = false;
+  }
 
 }

@@ -11,7 +11,7 @@ import { ALIENS_URL } from '../models/API';
 @Injectable()
 export class AlienAPIService {
 
-    constructor(private http: Http) {}
+    constructor(private http: Http) { }
 
     getAliens(): Observable<Alien[]> {
         return this.http.get(ALIENS_URL)

@@ -54,11 +54,29 @@ p{
 
 a{
      text-decoration: none;
+     cursor:pointer;
 }
 
 /*the flasher thing*/
-.submitting.ng-invalid {
-  border: 2px solid red;
+
+.ng-invalid.submitting{
+    animation: button-pulse 0.75s infinite;
 }
+
+@keyframes button-pulse{
+
+    from  {
+    box-shadow:  
+    0 0 0 1px rgba(223, 63, 63, 1);
+    }
+    
+    to {
+     box-shadow:  
+    0 0 0 10px rgba(223, 63, 63, 0);
+    }
+    
+}
+
+
 
 

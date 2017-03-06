@@ -14,20 +14,19 @@ export class BlogComponent implements OnInit {
   loaded : boolean;
 
   constructor(private blogAPIService: BlogAPIService) {
-    this.loaded = false;
+    //get the bog posts from the WP Api
     this.getBlogPosts();
   }
 
   ngOnInit() {
+     this.loaded = false;
   }
 
   getBlogPosts() {
     this.blogAPIService.getBlogPosts()
       .subscribe((result) => {
-        console.log(result);
         this.loaded = true;
         this.blogPosts = result;
-        console.log(this.blogPosts);
       });
   }
 }

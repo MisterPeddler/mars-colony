@@ -16,20 +16,22 @@ export class EncountersComponent implements OnInit {
   loaded: boolean;
 
   constructor(private encountersAPIService: EncountersAPIService) {
-    //get the list of encounters
-    this.loaded = false;
+    //get the list of encounters from the API
     this.getAlienEncounters();
   }
 
   getAlienEncounters() {
     this.encountersAPIService.getEncounters()
       .subscribe((result) => {
+        //hides the loading gif
         this.loaded = true;
+        //loads result onto the view
         this.encounterReports = result;
       });
   }
 
   ngOnInit(){
+     this.loaded = false;
   }
 
 }

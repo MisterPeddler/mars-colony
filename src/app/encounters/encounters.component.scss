@@ -1,21 +1,7 @@
+@import"../../theme";
+
 .encounters-comp{
     background:white;
-    height:100vh;
-
-    animation-duration: 0.5s;
-   animation-name: slide;
-}
-
-
-@keyframes slide{
-   0% {
-      opacity: 0;
-      /*transform: translateX(100%);*/
-   }
-   100% {
-      opacity: 1;
-       /*transform: translateX(0%);*/
-   }
 }
 
 .loaded{
@@ -30,28 +16,19 @@ img{
     transform: translateX(-50%);
 }
 
-h1, a{
-    font-weight:100;
-    font-size:2.2rem;
+
+h1{
+    color:$color__text_black;
+     font-size:2.2rem;
     text-align:center;
 }
-
-a{
-    color:white;
-    text-decoration: none;
-    margin: 5px 0;
-}
-
-/*a:last-child{
-    margin-top:40px;
-}*/
 
 p{
     font-weight:100;
     font-size:1.2rem;
     text-align: center;
     text-align:left;
-    
+    color:$color__text_black;
 }
 
 .report-list{
@@ -84,6 +61,11 @@ padding: 10px 15px;
     flex-direction: column;
     align-items:center;
     justify-content: center;
-    padding: 0 60px;
-    box-sizing: border-box;
+
+    a{
+        color:$color__text_white;
+        padding:10px 0;
+         font-size:2.2rem;
+    text-align:center;
+    }
 }

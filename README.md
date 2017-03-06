@@ -1,7 +1,7 @@
 # Mars-Colony
 A single page, scratch built webapp for cataloging alien encounters on mars.
 
-![Mars App Screenshot](https://github.com/MisterPeddler/instanews/blob/master/instanews-screenshot.png)
+![Mars App Screenshot](https://github.com/MisterPeddler/mars-colony/blob/master/src/assets/screenshot.png)
 
 ## Project Details
 This web app was built using Angular 2 and typescript.
